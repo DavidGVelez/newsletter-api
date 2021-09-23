@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  app:
+    container_name: newsletter_api
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    image: "lumen_api"
+    ports:
+      - "443:443"
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+  db:
+    container_name: newsletter_db
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    command: --sql_mode=""
+    environment:
+      MYSQL_DATABASE: newsletter
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_USERNAME}
+      MYSQL_ROOT_PASSWORD: ${DB_USERNAME}
+    volumes:
+      - my-datavolume:/var/lib/mysql
+volumes:
+  my-datavolume:
