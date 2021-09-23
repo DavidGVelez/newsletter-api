@@ -17,6 +17,6 @@ class PostController extends BaseController
 
   public function index()
   {
-    dd('test');
+    return json_encode($this->post->all());
   }
 }
