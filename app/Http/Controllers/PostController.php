@@ -14,4 +14,9 @@ class PostController extends BaseController
   {
     $this->post = new PostRepository($post);
   }
+
+  public function index()
+  {
+    dd('test');
+  }
 }
