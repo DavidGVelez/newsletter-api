@@ -21,7 +21,7 @@ services:
       - "3306:3306"
     command: --sql_mode=""
     environment:
-      MYSQL_DATABASE: newsletter
+      MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_USERNAME}
       MYSQL_ROOT_PASSWORD: ${DB_USERNAME}

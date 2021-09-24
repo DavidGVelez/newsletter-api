@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug')->unique()->nullable();
             $table->text('body');
-            $table->enum('type', ['js', 'php', 'vuejs', 'others']);
+            $table->string('type');
             $table->timestamps();
         });
     }
