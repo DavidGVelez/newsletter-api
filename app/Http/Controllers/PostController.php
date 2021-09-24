@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Repositories\PostRepository;
-use Laravel\Lumen\Routing\Controller as BaseController;
+use Illuminate\Routing\Controller as BaseController;
 
 class PostController extends BaseController
 {
@@ -17,6 +17,6 @@ class PostController extends BaseController
 
   public function index()
   {
-    return json_encode($this->post->all());
+    return $this->post->all();
   }
 }
